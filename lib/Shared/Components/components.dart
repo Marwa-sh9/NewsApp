@@ -2,7 +2,6 @@ import 'package:conditional_builder/conditional_builder.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
 import '../../ModulesNews/web_view/Web_View_Screen.dart';
 import '../cubit/cubit.dart';
 Widget defaultButton({
@@ -69,136 +68,89 @@ prefixIcon: Icon(
 ),
 );
 
-Widget buildTaskItem(Map model,context)=>Dismissible(
- key: Key(model['id'].toString()),
-  child:   Padding(
-   padding: const EdgeInsets.all(15.0),
-   child: Row(
-    children: [
-     CircleAvatar(
-      radius: 40,
-      child: Text('${model['time']}'),
-     ),
-     SizedBox(
+// Widget buildTaskItem(Map model,context)=>Dismissible(
+//  key: Key(model['id'].toString()),
+//   child:   Padding(
+//    padding: const EdgeInsets.all(15.0),
+//    child: Row(
+//     children: [
+//      CircleAvatar(
+//       radius: 40,
+//       child: Text('${model['time']}'),
+//      ),
+//      SizedBox(
+//       width: 20,
+//      ),
+//      Expanded(
+//        child: Column(
+//         mainAxisSize: MainAxisSize.min,
+//         crossAxisAlignment: CrossAxisAlignment.start,
+//         children: [
+//          Text('${model['title']}',style:TextStyle(fontSize:20,
+//           fontWeight: FontWeight.bold,
+//          ),),
+//          Text('${model['date']}',style:TextStyle(fontSize:20,
+//          ),),
+//          // SizedBox(
+//          //  height: 7,
+//          // ),
+//          // Text('${model['status']}',style:TextStyle(fontSize:20,
+//          // ),),
+//         ],
+//        ),
+//      ),
+//      SizedBox(
+//       width: 20,
+//      ),
+//      IconButton(
+//          onPressed: ()
+//          {
+//           AppCubit.get(context).UpdateSataBase(
+//               status: 'done',
+//               id: model['id'],
+//           );
+//          },
+//          icon: Icon(Icons.check_box)),
+//      IconButton(
+//          onPressed: ()
+//          {
+//           AppCubit.get(context).UpdateSataBase(
+//            status: 'archive',
+//            id: model['id'],
+//           );
+//          },
+//          icon: Icon(Icons.archive_outlined)),
+//     ],
+//    ),
+//   ),
+//  onDismissed: (direction)
+//  {
+//   AppCubit.get(context).DeleteDataBase(id: model['id'],);
+//  },
+// );
 
-      width: 20,
-
-     ),
-
-     Expanded(
-
-       child: Column(
-
-        mainAxisSize: MainAxisSize.min,
-
-        crossAxisAlignment: CrossAxisAlignment.start,
-
-        children: [
-
-         Text('${model['title']}',style:TextStyle(fontSize:20,
-
-          fontWeight: FontWeight.bold,
-
-         ),),
-
-         Text('${model['date']}',style:TextStyle(fontSize:20,
-
-         ),),
-
-         // SizedBox(
-
-         //  height: 7,
-
-         // ),
-
-         // Text('${model['status']}',style:TextStyle(fontSize:20,
-
-         // ),),
-
-        ],
-
-       ),
-
-     ),
-
-     SizedBox(
-
-      width: 20,
-
-     ),
-
-     IconButton(
-
-         onPressed: ()
-
-         {
-
-          AppCubit.get(context).UpdateSataBase(
-
-              status: 'done',
-
-              id: model['id'],
-
-          );
-
-         },
-
-         icon: Icon(Icons.check_box)),
-
-     IconButton(
-
-         onPressed: ()
-
-         {
-
-          AppCubit.get(context).UpdateSataBase(
-
-           status: 'archive',
-
-           id: model['id'],
-
-          );
-
-         },
-
-         icon: Icon(Icons.archive_outlined)),
-
-
-
-    ],
-
-   ),
-
-  ),
- onDismissed: (direction)
- {
-  AppCubit.get(context).DeleteDataBase(id: model['id'],);
- },
-);
-
-Widget tasksBuilder({
- @required List<Map>? tasks,
-})=> ConditionalBuilder(
- condition: tasks!.length>0 ,
- builder: (context)=>ListView.separated(
-  itemBuilder:(context,index)
-  {
-   return buildTaskItem(tasks[index], context);
-  },
-  separatorBuilder: (context,index)=>
-  MyDivider(),
-  itemCount: tasks.length,),
- fallback: (context)=>Center(
-  child: Column(
-   mainAxisAlignment: MainAxisAlignment.center,
-   children: [
-    Icon(Icons.menu,),
-    Text('No Tasks yet , please add some tasks'),
-   ],
-  ),
- ),
-
-);
+// Widget tasksBuilder({
+//  @required List<Map>? tasks,
+// })=> ConditionalBuilder(
+//  condition: tasks!.length>0 ,
+//  builder: (context)=>ListView.separated(
+//   itemBuilder:(context,index)
+//   {
+//    return buildTaskItem(tasks[index], context);
+//   },
+//   separatorBuilder: (context,index)=>
+//   MyDivider(),
+//   itemCount: tasks.length,),
+//  fallback: (context)=>Center(
+//   child: Column(
+//    mainAxisAlignment: MainAxisAlignment.center,
+//    children: [
+//     Icon(Icons.menu,),
+//     Text('No Tasks yet , please add some tasks'),
+//    ],
+//   ),
+//  ),
+// );
 
 Widget MyDivider({
  Color color=Colors.greenAccent,

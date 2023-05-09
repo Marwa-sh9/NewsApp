@@ -5,7 +5,6 @@ import 'package:newsapp/ModulesNews/new_tasks/science/science_Screen.dart';
 import 'package:newsapp/ModulesNews/new_tasks/sports/Sports_Screen.dart';
 import 'package:newsapp/ModulesNews/settings/settings_Screen.dart';
 import 'package:newsapp/newsapp/cubit/states.dart';
-
 import '../../ModulesNews/new_tasks/business/business_screen.dart';
 import '../../Shared/network/remote/dio_helper.dart';
 
@@ -141,7 +140,7 @@ class NewsCubit extends Cubit<NewsStates> {
     }
   }
 
-
+  //
   // bool isDark=false;
   // ThemeMode appMode = ThemeMode.dark;
   // void changeAppMode()
